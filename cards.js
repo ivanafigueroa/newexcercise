@@ -5,10 +5,12 @@ img
 Nombre, desc, edad, lista de algo
 [] Insertar en la tarjeta
 [] Mostrar dentro de div.container
+[] Crear funciones reutilizables
+[]
 */
 
 const CARDS_CONTAINER = document.querySelector("#card-container");
-const USER = {
+const USERS = {
     id:1,
     username: "User Name",
     desc: "Sobre mi",
@@ -18,35 +20,52 @@ const USER = {
     },
 };
 
-//Crear tarjeta
-const card = document.createElement("div");
-const name_section = document.createElement("h3");
-const desc_section = document.createElement("p");
-const age_section = document.createElement("p");
-const book_section = document.createElement("div")
-
-//Lista
-
-const bookList = USER.fav_books.books.map(e => {
-    const item = document.createElement("ul");
-    item.textContent = e;
-    return item;
-})
-
-console.log(bookList);
+//Crear secciones de nuestra tarjeta
+function createElement(){
+    const card0bj = {
+        name_section: document.createElement("h3"),
+        desc_section: document.createElement("p"),
+        age_section: document.createElement("p"),
+        book_section: document.createElement("div"),
+    };
+    return card0bj;
+}
 
 //Crear tarjeta
+//Inyectamos info
 
-name_section.textContent = USER.username;
-desc_section.textContent = USER.desc;
-age_section.textContent = USER.age;
-book_section.append(...bookList);
-card.append(name_section, desc_section, age_section, book_section);
+function injectData(obj,user) {
+    const bookList = user.fav_books.books.map (
+        (e) => {
+            const item = document.createElement("ul");
+            item.textContent = e;
+            return item;
+        }
+    )
+    obj.name_section.textContent = user.username;
+    obj.desc_section.textContent = user.desc;
+    obj.age_section.textContent = user.age;
+    obj.book_section.append(...bookList);
+    renderCard(obj);
+}
 
-//Inyectar tarjeta en el container
+function renderCard(cardObj) {
+    const card = document.createElement("div");
+    card.append (
+        cardObj.name_section,
+        cardObj.desc_section,
+        cardObj.age_section,
+        cardObj.book_section,
+    );
+    card.className = "div-creado";
+    CARDS_CONTAINER.appendChild(card);
 
-CARDS_CONTAINER.appendChild(card);
 
-// Actividad
+}
+
+USERS.forEach ( (user) => {
+    const cardData = createElements();
+    injectData(cardData, user);
+});
 
 
