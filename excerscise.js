@@ -1,11 +1,3 @@
-/*
-Crear tarjeta
-Crear Secciones p/tarjeta
-img
-Nombre, desc, edad, lista de algo
-[] Insertar en la tarjeta
-[] Mostrar dentro de div.container
-*/
 
 const CARDS_CONTAINER = document.querySelector("#musica");
 const GENDER = {
@@ -39,4 +31,7 @@ const gendermusic = GENDER.fav_gender.gender.map(e =>{
 
  genmusic_section = textContent = GENDER.genmusic;
  desc_section = textContent = GENDER.desc;
- time_section = textContent = GENDER
+ time_section = textContent = GENDER.time;
+ fav_gender.append(...music);
+ excerscise.append(genmusic_section, desc_section, time_section,fav_gender_section);
+ 
