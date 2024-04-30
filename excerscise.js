@@ -16,7 +16,7 @@ const music = document.createElement("div");
 const genmusic_section = document.createElement("h3");
 const desc_section = document.createElement("p");
 const time_section = document.createElement("p");
-const fav_gender = document.createElement("div");
+const gendero = document.createElement("div");
 
 //Lista
 
@@ -33,5 +33,7 @@ const gendermusic = GENDER.fav_gender.gender.map(e =>{
  desc_section = textContent = GENDER.desc;
  time_section = textContent = GENDER.time;
  fav_gender.append(...music);
- excerscise.append(genmusic_section, desc_section, time_section,fav_gender_section);
+ music.append(genmusic_section, desc_section, time_section,gendero_section);
+
+ CARDS_CONTAINER.appendChild(card);
  
