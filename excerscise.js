@@ -37,4 +37,6 @@ const gendermusic = GENDER.fav_gender.gender.map(e =>{
 
  // Crear segunda tarjeta
 
- genmusic_section = textContent = User. User
+ genmusic_section = textContent = GENDER.genmusic;
+ desc_section = textContent = GENDER.desc;
+ time_section = textContent = GENDER
